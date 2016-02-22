@@ -12,7 +12,6 @@
 */
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -24,17 +23,16 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/',function(){
-        return redirect('choose/create');
-    });
-});
-
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-    Route::get('/choose/create', 'HomeController@create');
-    Route::post('/choose/store', 'HomeController@store');
 });
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
+    Route::post('/choose/store', 'HomeController@store')->middleware('auth');
+    Route::get('admin', 'HomeController@admin')->middleware('auth');
+});
+
+
+

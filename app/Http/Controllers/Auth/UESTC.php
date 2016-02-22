@@ -102,7 +102,7 @@ class UESTC
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch,CURLOPT_TIMEOUT,10);
+        curl_setopt($ch,CURLOPT_TIMEOUT,5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch,CURLOPT_HEADER,1); //将头文件的信息作为数据流输出
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0");

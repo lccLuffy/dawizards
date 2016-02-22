@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Choice extends Model
 {
     protected $fillable = [
-        'user_info', 'name','value',
+        'name','value','type'
     ];
     public function user()
     {

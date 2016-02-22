@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Choice;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -12,12 +13,12 @@ class HomeController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth',['except'=>['create','store']]);
-    }
 
+    public function __construct()
+     * {
+     * $this->middleware('auth',['except'=>['create','store']]);
+     * }
+     */
     /**
      * Show the application dashboard.
      *
@@ -28,28 +29,46 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function create()
-    {
-        return view('choose');
-    }
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'option'=>'required',
-            'stu_num'=>'required'
-        ],[
-            'option.required'=>'选项不能为空',
-            'stu_num.required'=>'学号不能为空'
+        $this->validate($request, [
+            'option' => 'required',
+        ], [
+            'option.required' => '选项不能为空',
         ]);
 
-        if(!in_array($request['stu_num'],config('dawizards.stu_nums')))
-        {
-            return back()->withInput()->withErrors('学号不正确');
+
+        $user = $request->user();
+
+        if ($user->choices()->where('type', $request['type'])->count() > 0) {
+            $choice = $user->choices()->where('type', $request['type'])->first();
+            $choice->value = $request['option'];
+
+            if ($choice->save()) {
+                return back()->withInput()->withSuccess('修改成功');
+            } else {
+                return back()->withInput()->withErrors('修改失败');
+            }
         }
-        Choice::create([
-            'user_info'=>$request['stu_num'],
-            'name'=>'调查',
-            'value'=>$request['option'],
+
+        $choice = Choice::create([
+            'name' => '调查',
+            'type' => $request['type'],
+            'value' => $request['option'],
         ]);
+        if ($user->choices()->save($choice)) {
+            return back()->withInput()->withSuccess('提交成功');
+        } else {
+            return back()->withInput()->withErrors('提交失败');
+        }
+    }
+
+    public function admin()
+    {
+        if (!isAdmin(Auth::user())) {
+            abort(403);
+        }
+        $choices = Choice::all();
+        return view('admin.index', compact('choices'));
     }
 }

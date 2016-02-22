@@ -22,7 +22,7 @@ class AuthController extends Controller
     |
     */
 
-    use UestcController,AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use UestcController, AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
@@ -44,29 +44,32 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'stu_num' => 'required',
+            'stu_num' => 'required|unique:users',
             'password' => 'required',
+        ],[
+            'stu_num.unique'=>'您已经注册过了'
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['stu_num'],
+            'name' => $this->student_data['name'],
+            'stu_num' => $data['stu_num'],
             'password' => bcrypt($data['password']),
-            'stu_info'=>$this->student_data['json']
+            'stu_info' => $this->student_data['json']
         ]);
     }
 }
