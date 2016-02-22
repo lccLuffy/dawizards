@@ -56,9 +56,13 @@ class HomeController extends Controller
             'type' => $request['type'],
             'value' => $request['option'],
         ]);
-        if ($user->choices()->save($choice)) {
+
+        if ($user->choices()->save($choice))
+        {
             return back()->withInput()->withSuccess('提交成功');
-        } else {
+        }
+        else
+        {
             return back()->withInput()->withErrors('提交失败');
         }
     }
