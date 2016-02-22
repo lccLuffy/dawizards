@@ -53,7 +53,7 @@ class AuthController extends Controller
             'stu_num' => 'required|unique:users',
             'password' => 'required',
         ],[
-            'stu_num.unique'=>'您已经注册过了'
+            'stu_num.unique'=>'您已经注册过了,请登录'
         ]);
     }
 
