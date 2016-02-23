@@ -10,13 +10,15 @@
                     <tr>
                         <th class="hidden-md">姓名</th>
                         <th class="hidden-md">选项</th>
+                        <th class="hidden-md">更新时间</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($choices as $choice)
                         <tr>
-                            <th class="hidden-md">{{$choice->user->name}}</th>
-                            <th class="hidden-md">{{$choice->value}}</th>
+                            <td class="hidden-md">{{$choice->user->name}}</td>
+                            <td class="hidden-md">{{$choice->value}}</td>
+                            <td class="hidden-md">{{$choice->updated_at->diffForHumans()}}</td>
                         </tr>
                     @endforeach
                     </tbody>
