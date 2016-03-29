@@ -1,10 +1,10 @@
 <div class="panel panel-default text-center">
-    <div class="panel-heading" style="font-size: 24px;">调查</div>
+    <div class="panel-heading" style="font-size: 24px;">报名表</div>
     <div class="panel-body" style="font-size: large;">
         <form class="form-horizontal" method="post" action="{{url('choose/store')}}">
             {!! csrf_field() !!}
             <input name="type" value="1" type="hidden">
-            <div class="col-md-12">
+            <div class="col-md-10 col-lg-offset-1">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">学号</span> <input class="form-control" type="text"
@@ -31,18 +31,24 @@
                                                                          value="{{$user->address}}">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">你自学过什么?*</label>
-                    <textarea class="form-control" id="exampleInputEmail1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleInputEmail1" rows="2"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">项目经历*</label>
-                    <textarea class="form-control" id="exampleInputEmail1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleInputEmail1" rows="2"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">进入工作室后,想要学到什么?*</label>
-                    <textarea class="form-control" id="exampleInputEmail1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleInputEmail1" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">你的脑袋什么颜色?*</label>
+                    <textarea class="form-control" id="exampleInputEmail1" rows="2"></textarea>
                 </div>
                 <p>你对哪个方向感兴趣？</p>
                 <div class="radio form-group">
