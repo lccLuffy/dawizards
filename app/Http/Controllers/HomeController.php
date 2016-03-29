@@ -29,13 +29,6 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function join()
-    {
-        $user = Auth::user();
-        $user_info = json_decode($user->stu_info);
-        return view('join')->with(compact('user', 'user_info'));
-    }
-
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -90,4 +83,12 @@ class HomeController extends Controller
     {
         return view("impress");
     }
+
+    public function join()
+    {
+        $user = Auth::user();
+        $user_info = json_decode($user->stu_info);
+        return view('join')->with(compact('user', 'user_info'));
+    }
+
 }
