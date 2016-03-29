@@ -40,6 +40,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
                 <li><a href="{{ url('/about') }}">About</a></li>
+                <li><a href="{{ url('/join') }}">Join Us</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

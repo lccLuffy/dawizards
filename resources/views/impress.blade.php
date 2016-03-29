@@ -290,7 +290,7 @@
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10"
          data-scale="2">
         <p><span class="have">不要</span> <span class="you">忘了</span> <span class="noticed">填写</span> <span
-                    class="its">报名</span> <span class="in">表</span> <b>吆<sup></sup></b></p>
+                    class="its"><a href="{{ url('join') }}">报名</a></span> <span class="in">表</span> <b>吆<sup></sup></b></p>
         <span class="footnote">fight it!! )</span>
     </div>
 

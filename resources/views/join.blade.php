@@ -6,7 +6,16 @@
                 @include('partials.errors')
                 @include('partials.success')
                 @if(Auth::check())
+                    @if(Auth::user()->choices()->where('type',1)->count() > 0)
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{Auth::user()->name}}的选择是(重新提交可以修改)</div>
 
+                            <div class="panel-body">
+                                <p class="caption">{{Auth::user()->choices()->where('type',1)->first()->value}}</p>
+                            </div>
+                        </div>
+                    @endif
+                    @include('choose')
                 @else
                     <div class="panel panel-default">
                         <div class="panel-heading">Da Wizards</div>

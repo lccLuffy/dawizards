@@ -26,9 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return view('home');
+    }
+
+    public function join()
+    {
         $user = Auth::user();
         $user_info = json_decode($user->stu_info);
-        return view('home')->with(compact('user', 'user_info'));
+        return view('join')->with(compact('user', 'user_info'));
     }
 
     public function store(Request $request)
