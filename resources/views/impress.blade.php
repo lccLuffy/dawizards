@@ -119,9 +119,8 @@
     For example this fallback message is only visible when there is `impress-not-supported` class on body.
 -->
 <div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
-        version of this presentation.</p>
-    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    <p>你的浏览器 <b>不支持此效果</b> </p>
+    <p>请尝试使用<b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 
 <!--
