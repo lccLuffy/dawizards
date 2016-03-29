@@ -57,12 +57,9 @@ class HomeController extends Controller
             'value' => $request['option'],
         ]);
 
-        if ($user->choices()->save($choice))
-        {
+        if ($user->choices()->save($choice)) {
             return back()->withInput()->withSuccess('提交成功');
-        }
-        else
-        {
+        } else {
             return back()->withInput()->withErrors('提交失败');
         }
     }
@@ -72,8 +69,18 @@ class HomeController extends Controller
         if (!isAdmin(Auth::user())) {
             abort(403);
         }
-        $choices = Choice::orderBy('value','desc')->get();
+        $choices = Choice::orderBy('value', 'desc')->get();
 
         return view('admin.index', compact('choices'));
+    }
+
+    public function about()
+    {
+        return view("about");
+    }
+
+    public function impress()
+    {
+        return view("impress");
     }
 }

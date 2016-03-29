@@ -52,8 +52,9 @@ class AuthController extends Controller
         return Validator::make($data, [
             'stu_num' => 'required|unique:users',
             'password' => 'required',
-        ],[
-            'stu_num.unique'=>'您已经注册过了,请登录'
+        ], [
+            'stu_num.unique' => '您已经注册过了,请登录',
+            'password.required' => '请填写密码'
         ]);
     }
 
