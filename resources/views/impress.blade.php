@@ -68,12 +68,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=1024"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by
-        Bartek Szopka @bartaz</title>
+    <title>DA Wizards</title>
 
-    <meta name="description"
-          content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com."/>
-    <meta name="author" content="Bartek Szopka"/>
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
           rel="stylesheet"/>
@@ -222,7 +218,7 @@
     <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
         <p>这是一个充满 <strong>激情，热情，与爱</strong> <br/>
             的地方 <br/>
-            并且这里充满了不同方面的 <strong>各种大牛</strong> </p>
+            并且这里充满了不同方面的 <strong>各种大牛</strong></p>
     </div>
 
     <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
