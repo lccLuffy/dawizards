@@ -169,7 +169,7 @@
 
     -->
     <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>你觉得这仅仅是个<b> 简单的 </b>网页PPT？</q>
+        <q>我叫<b> DA wizards </b>工作室</q>
     </div>
 
     <!--
@@ -188,12 +188,11 @@
 
     -->
     <div class="step slide" data-x="0" data-y="-1500">
-        <q>再敲一敲键盘看看 O(∩_∩)O哈哈~</q>
+        <q>很高兴看到你(再敲一敲键盘看看 O(∩_∩)O)</q>
     </div>
 
     <div class="step slide" data-x="1000" data-y="-1500">
-        <q>有些人能清楚地听到自己内心深处的声音，并以此行事。这些人要么变成了疯子，要么成为传奇。
-            准备好加入 <strong>DA wizards</strong> 这个充满 <strong>热情</strong> 的工作室了吗?</q>
+        <q>是的，有些人能清楚地听到自己内心深处的声音，并以此行事。这些人要么变成了疯子，要么成为传奇.(->)</q>
     </div>
 
     <!--
@@ -207,9 +206,9 @@
 
     -->
     <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+        <span class="try">那么加入</span>
+        <h1>DAwizards<sup>*</sup></h1>
+        <span class="footnote"><sup>*</sup> 工作室吧</span>
     </div>
 
     <!--
@@ -221,13 +220,13 @@
 
     -->
     <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-            inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-            and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+        <p>这是一个充满 <strong>激情，热情，与爱</strong> <br/>
+            的地方 <br/>
+            并且这里充满了不同方面的 <strong>各种大牛</strong> </p>
     </div>
 
     <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+        <p>充分发掘你 <b>独特</b> <span class="thoughts">的想法</span></p>
     </div>
 
     <!--
@@ -240,7 +239,7 @@
 
     -->
     <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
+        <p>和 <b>天马行空</b> 的想象</p>
     </div>
 
     <!--
@@ -264,21 +263,21 @@
 
     -->
     <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b
-                    class="scaling">scaling</b> them on an infinite canvas</p>
+        <p>学会 <b class="positioning">分享</b>, <b class="rotating">交流</b> 和 <b
+                    class="scaling">永不言弃</b> 然后不断进步</p>
     </div>
 
     <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+        <p>仅有的 <b>限制</b> 是你的 <b class="imagination">想象力</b></p>
     </div>
 
     <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+        <p>想要打破自己吗?</p>
+        <q><a href="{{ url('/') }}">加入DA wizards</a></q>
     </div>
 
     <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
+        <p>还有一件事...</p>
     </div>
 
     <!--
@@ -295,9 +294,9 @@
     -->
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10"
          data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span
-                    class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
+        <p><span class="have">不要</span> <span class="you">忘了</span> <span class="noticed">填写</span> <span
+                    class="its">报名</span> <span class="in">表</span> <b>吆<sup></sup></b></p>
+        <span class="footnote">fight it!! )</span>
     </div>
 
     <!--
