@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet"/>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -6,15 +9,6 @@
                 @include('partials.errors')
                 @include('partials.success')
                 @if(Auth::check())
-                    @if(Auth::user()->choices()->where('type',1)->count() > 0)
-                        <div class="panel panel-default">
-                            <div class="panel-heading">{{Auth::user()->name}}的选择是(重新提交可以修改)</div>
-
-                            <div class="panel-body">
-                                <p class="caption">{{Auth::user()->choices()->where('type',1)->first()->value}}</p>
-                            </div>
-                        </div>
-                    @endif
                     @include('choose')
                 @else
                     <div class="panel panel-default">
@@ -30,4 +24,10 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+    <script>
+        $('#choose').select2();
+    </script>
 @endsection
