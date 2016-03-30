@@ -38,17 +38,17 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
-                <li><a href="{{ url('/about') }}">About</a></li>
-                <li><a href="{{ url('/join') }}">Join Us</a></li>
+                <li class="{{ request()->is('home')?'active':'' }}"><a href="{{ url('/home') }}">Home</a></li>
+                <li class="{{ request()->is('about')?'active':'' }}"><a href="{{ url('/about') }}">About</a></li>
+                <li class="{{ request()->is('join')?'active':'' }}"><a href="{{ url('/join') }}">Join Us</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">登录</a></li>
-                    <li><a href="{{ url('/register') }}">注册</a></li>
+                    <li class="{{ request()->is('login')?'active':'' }}"><a href="{{ url('/login') }}">登录</a></li>
+                    <li class="{{ request()->is('register')?'active':'' }}"><a href="{{ url('/register') }}">注册</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
