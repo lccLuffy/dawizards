@@ -63,9 +63,9 @@ class HomeController extends Controller
         if (!isAdmin(Auth::user())) {
             abort(403);
         }
-        $choices = Choice::orderBy('value', 'desc')->get();
+        $joins = Join::all();
 
-        return view('admin.index', compact('choices'));
+        return view('admin.index', compact('joins'));
     }
 
     public function about()

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
 
                 <table id="users-table" class="table table-striped table-bordered">
                     <thead>
@@ -12,20 +12,24 @@
                         <th class="hidden-md">专业</th>
                         <th class="hidden-md">邮箱</th>
                         <th class="hidden-md">自学过</th>
-                        <th class="hidden-md">更新时间</th>
-                        <th class="hidden-md">更新时间</th>
-                        <th class="hidden-md">更新时间</th>
-                        <th class="hidden-md">更新时间</th>
-                        <th class="hidden-md">更新时间</th>
-                        <th class="hidden-md">更新时间</th>
+                        <th class="hidden-md">项目经历</th>
+                        <th class="hidden-md">想要学到什么</th>
+                        <th class="hidden-md">脑袋什么颜色</th>
+                        <th class="hidden-md">感兴趣方向</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($choices as $choice)
+                    @foreach ($joins as $join)
                         <tr>
-                            <td class="hidden-md">{{$choice->user->name}}</td>
-                            <td class="hidden-md">{{$choice->value}}</td>
-                            <td class="hidden-md">{{$choice->updated_at->diffForHumans()}}</td>
+                            <td class="hidden-md">{{$join->name}}</td>
+                            <td class="hidden-md">{{$join->stu_num}}</td>
+                            <td class="hidden-md">{{$join->major}}</td>
+                            <td class="hidden-md">{{$join->email}}</td>
+                            <td class="hidden-md">{{$join->hasLearned}}</td>
+                            <td class="hidden-md">{{$join->experience}}</td>
+                            <td class="hidden-md">{{$join->wantLearn}}</td>
+                            <td class="hidden-md">{{$join->brainColor}}</td>
+                            <td class="hidden-md">{{$join->choose}}</td>
                         </tr>
                     @endforeach
                     </tbody>
