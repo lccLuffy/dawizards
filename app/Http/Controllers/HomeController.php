@@ -58,15 +58,7 @@ class HomeController extends Controller
         return redirect('/')->with('error', '提交失败');
     }
 
-    public function admin()
-    {
-        if (!isAdmin(Auth::user())) {
-            abort(403);
-        }
-        $joins = Join::all();
 
-        return view('admin.index', compact('joins'));
-    }
 
     public function about()
     {
