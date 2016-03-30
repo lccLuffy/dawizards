@@ -8,7 +8,15 @@
                     <thead>
                     <tr>
                         <th class="hidden-md">姓名</th>
-                        <th class="hidden-md">选项</th>
+                        <th class="hidden-md">学号</th>
+                        <th class="hidden-md">专业</th>
+                        <th class="hidden-md">邮箱</th>
+                        <th class="hidden-md">自学过</th>
+                        <th class="hidden-md">更新时间</th>
+                        <th class="hidden-md">更新时间</th>
+                        <th class="hidden-md">更新时间</th>
+                        <th class="hidden-md">更新时间</th>
+                        <th class="hidden-md">更新时间</th>
                         <th class="hidden-md">更新时间</th>
                     </tr>
                     </thead>

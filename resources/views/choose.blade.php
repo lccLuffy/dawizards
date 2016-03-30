@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('hasLearned') ? ' has-error' : '' }}">
-                    <label for="hasLearned">你自学过什么?</label>
+                    <label for="hasLearned">你自学过什么，有什么特长?</label>
                     <textarea class="form-control" id="hasLearned" name="hasLearned"
                               rows="2"> {{ old("hasLearned") }}</textarea>
                 </div>
