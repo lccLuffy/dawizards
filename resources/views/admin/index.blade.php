@@ -8,7 +8,7 @@
                         信息统计
                     </div>
                     <div class="panel-body">
-                        <table id="users-table" class="table table-striped ">
+                        <table id="users-table" class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th class="hidden-md">总人数</th>
