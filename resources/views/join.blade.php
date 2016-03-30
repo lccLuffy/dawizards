@@ -6,21 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                @include('partials.errors')
+                {{--@include('partials.errors')--}}
                 @include('partials.success')
-                @if(Auth::check())
-                    @include('choose')
-                @else
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Da Wizards</div>
-
-                        <div class="panel-body">
-                            <p class="caption">请<a href="{{url('login')}}">登录</a>或者<a href="{{url('register')}}">注册</a>
-                            </p>
-                        </div>
-                    </div>
-                @endif
-
+                @include('choose')
             </div>
         </div>
     </div>

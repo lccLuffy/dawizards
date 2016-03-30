@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Choice;
 use App\Http\Requests;
+use App\Join;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,38 +32,30 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $this->validate($request, [
-            'option' => 'required',
-        ], [
-            'option.required' => '选项不能为空',
+            'stu_num' => 'required',
+            'name' => 'required',
+            'major' => 'required',
+            'email' => 'required',
+            'hasLearned' => 'required',
+            'experience' => 'required',
+            'wantLearn' => 'required',
+            'brainColor' => 'required',
+            'choose' => 'required',
         ]);
 
+        $join = Join::where('stu_num', $request->get('stu_num'))->first();
 
-        $user = $request->user();
-
-        if ($user->choices()->where('type', $request['type'])->count() > 0) {
-            $choice = $user->choices()->where('type', $request['type'])->first();
-            $choice->value = $request['option'];
-
-            if ($choice->save()) {
-                return back()->withInput()->withSuccess('修改成功');
-            } else {
-                return back()->withInput()->withErrors('修改失败');
+        if ($join) {
+            if ($join->update($request->except('_token'))) {
+                return redirect('/')->with('success', '修改成功，我们会及时通知您结果');
+            }
+        } else {
+            if (Join::create($request->except('_token'))) {
+                return redirect('/')->with('success', '感谢您的填写，我们会及时通知您结果');
             }
         }
-
-        $choice = Choice::create([
-            'name' => '调查',
-            'type' => $request['type'],
-            'value' => $request['option'],
-        ]);
-
-        if ($user->choices()->save($choice)) {
-            return back()->withInput()->withSuccess('提交成功');
-        } else {
-            return back()->withInput()->withErrors('提交失败');
-        }
+        return redirect('/')->with('error', '提交失败');
     }
 
     public function admin()
@@ -87,9 +80,7 @@ class HomeController extends Controller
 
     public function join()
     {
-        $user = Auth::user();
-        $user_info = json_decode($user->stu_info);
-        return view('join')->with(compact('user', 'user_info'));
+        return view('join');
     }
 
 }

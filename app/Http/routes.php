@@ -31,9 +31,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
     Route::get('/about', 'HomeController@about');
-    Route::get('/join', 'HomeController@join')->middleware('auth');
+    Route::get('/join', 'HomeController@join');
     Route::get('/impress', 'HomeController@impress');
-    Route::post('/choose/store', 'HomeController@store')->middleware('auth');
+    Route::post('/choose/store', 'HomeController@store');
     Route::get('admin', 'HomeController@admin')->middleware('auth');
 });
 
