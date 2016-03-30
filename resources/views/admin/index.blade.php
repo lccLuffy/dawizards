@@ -3,6 +3,39 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        信息统计
+                    </div>
+                    <div class="panel-body">
+                        <table id="users-table" class="table table-striped ">
+                            <thead>
+                            <tr>
+                                <th class="hidden-md">总人数</th>
+                                <th class="hidden-md">IOS</th>
+                                <th class="hidden-md">Android</th>
+                                <th class="hidden-md">Web</th>
+                                <th class="hidden-md">游戏</th>
+                                <th class="hidden-md">动漫</th>
+                                <th class="hidden-md">美工</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="hidden-md">{{ $info['count'] }}</td>
+                                <td class="hidden-md">{{ $info['ios'] }}</td>
+                                <td class="hidden-md">{{ $info['android'] }}</td>
+                                <td class="hidden-md">{{ $info['web'] }}</td>
+                                <td class="hidden-md">{{ $info['game'] }}</td>
+                                <td class="hidden-md">{{ $info['comic'] }}</td>
+                                <td class="hidden-md">{{ $info['paint'] }}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
 
                 <table id="users-table" class="table table-striped table-bordered">
                     <thead>
