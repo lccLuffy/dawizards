@@ -49,6 +49,7 @@
                         <th class="hidden-md">想要学到什么</th>
                         <th class="hidden-md">脑袋什么颜色</th>
                         <th class="hidden-md">感兴趣方向</th>
+                        <th class="hidden-md">时间</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,7 @@
                             <td class="hidden-md">{{$join->wantLearn}}</td>
                             <td class="hidden-md">{{$join->brainColor}}</td>
                             <td class="hidden-md">{{$join->choose}}</td>
+                            <td class="hidden-md">{{$join->updated_at->format('y-m-d  h:i')}}</td>
                         </tr>
                     @endforeach
                     </tbody>
