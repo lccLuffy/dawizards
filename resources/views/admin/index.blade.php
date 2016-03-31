@@ -64,7 +64,7 @@
                             <td class="hidden-md">{{$join->wantLearn}}</td>
                             <td class="hidden-md">{{$join->brainColor}}</td>
                             <td class="hidden-md">{{$join->choose}}</td>
-                            <td class="hidden-md">{{$join->updated_at->format('y-m-d  h:i')}}</td>
+                            <td class="hidden-md">{{$join->updated_at->format('m-d  H:i')}}</td>
                         </tr>
                     @endforeach
                     </tbody>
