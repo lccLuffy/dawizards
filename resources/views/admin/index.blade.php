@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('css')
+    <link href="http://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" rel="stylesheet">
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -130,6 +133,7 @@
                 [9, "desc"]
             ],
             "iDisplayLength": 100,
+            "scrollX": true
         })
 
         function deleteJoin(id, name) {
