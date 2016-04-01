@@ -38,7 +38,7 @@ class AdminController extends Controller
 
     public function logs()
     {
-        $logs = Log::all();
+        $logs = Log::orderBy('created_at', 'desc')->get();
         return view('admin.logs', compact('logs'));
     }
 }
