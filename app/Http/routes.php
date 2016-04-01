@@ -33,7 +33,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/about', 'HomeController@about');
     Route::get('/join', 'HomeController@join');
     Route::get('/impress', 'HomeController@impress');
-    Route::post('/choose/store', 'HomeController@store');
+    Route::post('/choose/store', 'JoinController@store');
+    Route::delete('/choose/{join}', 'JoinController@destroy');
     Route::get('admin', 'AdminController@index');
     Route::get('admin/users', 'AdminController@users');
 });

@@ -3,6 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                @include('partials.errors')
+                @include('partials.success')
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         信息统计
@@ -37,7 +39,7 @@
                     </div>
                 </div>
 
-                <table id="join-table"  class="table table-striped table-bordered table-responsive">
+                <table id="join-table" class="table table-striped table-bordered table-responsive">
                     <thead>
                     <tr>
                         <th class="hidden-md">姓名</th>
@@ -50,6 +52,7 @@
                         <th class="hidden-md">脑袋什么颜色</th>
                         <th class="hidden-md">感兴趣方向</th>
                         <th class="hidden-md">时间</th>
+                        <th class="hidden-md">操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -65,6 +68,18 @@
                             <td class="hidden-md">{{$join->brainColor}}</td>
                             <td class="hidden-md">{{$join->choose}}</td>
                             <td class="hidden-md">{{$join->updated_at->format('m-d H:i')}}</td>
+                            <td>
+                                {{--  <button type="button" class="btn btn-danger btn-md" data-toggle="modal"
+                                          data-target="#modal-delete">
+                                      <i class="fa fa-times-circle"></i>
+                                      Delete
+                                  </button>--}}
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="deleteJoin('{{ $join->id }}','{{ $join->name }}')"
+                                        {{--data-toggle="modal" data-target="#modal-delete"--}}>
+                                    <i class="fa fa-trash-o"></i> 删除
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -72,12 +87,51 @@
             </div>
         </div>
     </div>
+
+    {{-- 确认删除 --}}
+    <div class="modal fade" id="modal-delete" tabIndex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Excuse me??</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">
+                        <i class="fa fa-question-circle fa-lg"></i>
+                        确定删除
+                        <strong id="stu_name"></strong>
+                        的报名表吗?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="POST" action="{{url('choose',13)}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-times-circle"></i> Yes
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('js')
     <script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script>
         $('#join-table').DataTable()
+
+        function deleteJoin(id, name) {
+            $('#stu_name').text(name)
+            $('#deleteForm').attr("action", '{{url('/')}}' + '/choose/' + id)
+            $('#modal-delete').modal()
+        }
     </script>
 
 @endsection

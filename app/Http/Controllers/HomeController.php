@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Join;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -29,36 +30,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'stu_num' => 'required',
-            'name' => 'required',
-            'major' => 'required',
-            'email' => 'required',
-            'hasLearned' => 'required',
-            'experience' => 'required',
-            'wantLearn' => 'required',
-            'brainColor' => 'required',
-            'choose' => 'required',
-        ]);
-
-        $join = Join::where('stu_num', $request->get('stu_num'))->first();
-
-        if ($join) {
-            if ($join->update($request->except('_token'))) {
-                return redirect('/')->with('success', '修改成功，我们会及时通知您结果');
-            }
-        } else {
-            if (Join::create($request->except('_token'))) {
-                return redirect('/')->with('success', '感谢您的填写，我们会及时通知您结果');
-            }
-        }
-        return redirect('/')->with('error', '提交失败');
-    }
-
-
 
     public function about()
     {
