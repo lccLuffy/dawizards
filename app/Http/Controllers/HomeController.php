@@ -43,7 +43,8 @@ class HomeController extends Controller
 
     public function join()
     {
-        return view('join');
+        return redirect('/')->withErrors('暂未开启报名，敬请期待!');
+        /*return view('join');*/
     }
 
 }
