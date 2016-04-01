@@ -37,6 +37,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('/choose/{join}', 'JoinController@destroy');
     Route::get('admin', 'AdminController@index');
     Route::get('admin/users', 'AdminController@users');
+    Route::get('admin/logs', 'AdminController@logs');
 });
 
 

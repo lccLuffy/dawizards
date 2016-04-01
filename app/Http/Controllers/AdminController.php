@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Join;
+use App\Log;
 use App\User;
 use Carbon\Carbon;
 
@@ -31,9 +32,13 @@ class AdminController extends Controller
 
     public function users()
     {
-
-        Carbon::now();
         $users = User::all();
         return view('admin.users', compact('users'));
+    }
+
+    public function logs()
+    {
+        $logs = Log::all();
+        return view('admin.logs', compact('logs'));
     }
 }

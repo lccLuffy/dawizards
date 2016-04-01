@@ -38,8 +38,10 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+
                 <li class="{{ request()->is('admin')?'active':'' }}"><a href="{{ url('admin') }}">Admin</a></li>
                 <li class="{{ request()->is('admin/users')?'active':'' }}"><a href="{{ url('admin/users') }}">用户</a></li>
+                <li class="{{ request()->is('admin/logs')?'active':'' }}"><a href="{{ url('admin/logs') }}">日志</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
