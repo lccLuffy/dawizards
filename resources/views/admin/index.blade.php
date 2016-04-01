@@ -133,7 +133,6 @@
                 [9, "desc"]
             ],
             "iDisplayLength": 100,
-            "scrollX": true
         })
 
         function deleteJoin(id, name) {
