@@ -51,16 +51,17 @@ class JoinController extends Controller
     {
         if ($join->delete()) {
             Log::create([
+                'option_id' => $join->id,
                 'user_id' => request()->user()->id,
                 'content' => request()->user()->name . '成功删除' . $join->name . '的报名表',
             ]);
             return back()->with('success', '成功删除' . $join->name . '的报名表');
         }
         Log::create([
+            'option_id' => $join->id,
             'user_id' => request()->user()->id,
             'content' => request()->user()->name . '删除' . $join->name . '的报名表失败',
         ]);
         return back()->withErrors('删除' . $join->name . '的报名表失败');
     }
-
 }
