@@ -125,7 +125,12 @@
 @section('js')
     <script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script>
-        $('#join-table').DataTable()
+        $('#join-table').DataTable({
+            "aaSorting": [
+                [9, "desc"]
+            ],
+            "iDisplayLength": 100,
+        })
 
         function deleteJoin(id, name) {
             $('#stu_name').text(name)
