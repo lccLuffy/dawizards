@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Choice;
 use App\Http\Requests;
 use App\Join;
 use App\Log;
@@ -27,7 +28,8 @@ class AdminController extends Controller
         $info['game'] = Join::where('choose', '游戏制作')->count();
         $info['comic'] = Join::where('choose', '动漫制作')->count();
         $info['paint'] = Join::where('choose', '美工')->count();
-        return view('admin.index', compact('joins', 'info'));
+        $data = Choice::where('name', 'send-email')->lists('value')->toArray();
+        return view('admin.index', compact('joins', 'info', 'data'));
     }
 
     public function users()

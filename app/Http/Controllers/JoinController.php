@@ -87,7 +87,7 @@ class JoinController extends Controller
             'content' => request()->user()->name . '发送邮件给' . $addr . "[$name]",]);
         Choice::create(['name' => 'send-email', 'value' => $addr]);
         $data = Choice::where('name', 'send-email')->lists('value')->toArray();
-        return back()->with('success', '发送成功,' . $addr . " [$name]")->with(compact('data'));
+        return back()->with('success', '发送成功,' . $addr . " [ $name ]")->with(compact('data'));
 
     }
 }

@@ -82,10 +82,18 @@
                                         {{--data-toggle="modal" data-target="#modal-delete"--}}>
                                     <i class="fa fa-trash-o"></i> 删除
                                 </button>
-                                <button class="btn btn-success btn-sm"
-                                        onclick="sendEmail('{{ $join->name }}','{{ $join->email }}')">
-                                    <i class="fa fa-send"></i> 邮件
-                                </button>
+                                @if(isset($data) && in_array($join->email,$data))
+                                    <button class="btn btn-success btn-sm"
+                                            onclick="sendEmail('{{ $join->name }}','{{ $join->email }}')">
+                                        <i class="fa fa-send"></i> 已发送
+                                    </button>
+                                @else
+                                    <button class="btn btn-default btn-sm"
+                                            onclick="sendEmail('{{ $join->name }}','{{ $join->email }}')">
+                                        <i class="fa fa-send"></i> 邮件
+                                    </button>
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach
@@ -196,7 +204,7 @@
         function sendEmail(name, email) {
             $('#input-send-email').attr('value', email);
             $('#input-send-name').attr('value', name);
-            $('#email-content').text(name + '同学你好，恭喜你已经进入第二轮面试阶段啦。' +
+            $('#email-content').text(name + '同学你好，恭喜你已经进入正式考核阶段啦。' +
                     '请尽快加入我们的考核群：472985724 我们将在群里发布后续通知.DA wizards期待你的加入！');
             $('#modal-send').modal()
         }
