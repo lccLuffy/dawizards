@@ -82,6 +82,10 @@
                                         {{--data-toggle="modal" data-target="#modal-delete"--}}>
                                     <i class="fa fa-trash-o"></i> 删除
                                 </button>
+                                <button class="btn btn-success btn-sm"
+                                        onclick="sendEmail('{{ $join->name }}','{{ $join->email }}')">
+                                    <i class="fa fa-send"></i> 邮件
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -122,7 +126,56 @@
             </div>
         </div>
     </div>
+    {{-- 发邮件 --}}
+    <div class="modal fade" id="modal-send" tabIndex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Send Email</h4>
+                </div>
+                <form id="deleteForm" method="POST" action="{{url('send/email')}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="modal-body">
+                        <p class="lead">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">邮箱</span>
+                                <input id="input-send-email" class="form-control"
+                                       readonly
+                                       name="address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">姓名</span>
+                                <input id="input-send-name" class="form-control"
+                                       readonly
+                                       name="name">
+                            </div>
+                        </div>
+                        <div class="form-group" style="width: 100%">
+                            <div class="input-group" style="width: 100%">
+                                <textarea rows="5" name="content" style="width: 100%;font-size: 20px"
+                                          id="email-content"></textarea>
+                            </div>
+                        </div>
 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-send-o"></i> Send
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -139,6 +192,13 @@
             $('#stu_name').text(name)
             $('#deleteForm').attr("action", '{{url('/')}}' + '/choose/' + id)
             $('#modal-delete').modal()
+        }
+        function sendEmail(name, email) {
+            $('#input-send-email').attr('value', email);
+            $('#input-send-name').attr('value', name);
+            $('#email-content').text(name + '同学你好，恭喜你已经进入第二轮面试阶段啦。' +
+                    '请尽快加入我们的考核群：472985724 我们将在群里发布后续通知.DA wizards期待你的加入！');
+            $('#modal-send').modal()
         }
     </script>
 

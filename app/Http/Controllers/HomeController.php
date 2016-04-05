@@ -28,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+       /* Mail::send('email.pass', [], function ($message) {
+            $message->to('528360256@qq.com', 'DA wizards')->subject('Welcome!');
+        });*/
         return view('home');
     }
 

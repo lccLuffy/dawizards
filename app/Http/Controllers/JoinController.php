@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Choice;
 use App\Join;
 use App\Log;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class JoinController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('admin', ['only' => 'destroy']);
-        $this->middleware('auth', ['only' => 'destroy']);
+        $this->middleware('admin', ['only' => ['destroy', 'sendEmail']]);
+        $this->middleware('auth', ['only' => ['destroy', 'sendEmail']]);
     }
 
     public function store(Request $request)
@@ -63,5 +66,28 @@ class JoinController extends Controller
             'content' => request()->user()->name . '删除' . $join->name . '的报名表失败',
         ]);
         return back()->withErrors('删除' . $join->name . '的报名表失败');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $content = $request['content'];
+        $addr = $request['address'];
+        $name = $request['name'];
+        if (Choice::where('value', $addr)->count() > 0) {
+            $data = Choice::where('name', 'send-email')->lists('value')->toArray();
+            return back()->withErrors('已经发过了');
+        }
+
+        Mail::raw($content, function (Message $message) use ($addr) {
+            $message->to($addr, 'DA wizards')->subject('DA wizards：恭喜你可以面试了!');
+        });
+
+        Log::create([
+            'user_id' => request()->user()->id,
+            'content' => request()->user()->name . '发送邮件给' . $addr . "[$name]",]);
+        Choice::create(['name' => 'send-email', 'value' => $addr]);
+
+        return back()->with('success', '发送成功,' . $addr . " [$name]")->with('sent', 2);
+
     }
 }

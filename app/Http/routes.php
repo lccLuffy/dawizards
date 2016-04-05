@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/join', 'HomeController@join');
     Route::get('/impress', 'HomeController@impress');
     Route::post('/choose/store', 'JoinController@store');
+    Route::post('/send/email', 'JoinController@sendEmail');
     Route::delete('/choose/{join}', 'JoinController@destroy');
     Route::get('admin', 'AdminController@index');
     Route::get('admin/users', 'AdminController@users');
