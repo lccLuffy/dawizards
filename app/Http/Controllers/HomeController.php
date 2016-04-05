@@ -29,9 +29,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        /* Mail::send('email.pass', [], function ($message) {
-             $message->to('528360256@qq.com', 'DA wizards')->subject('Welcome!');
-         });*/
+       /* Mail::send('email.pass', [], function ($message) {
+            $message->to('528360256@qq.com', 'DA wizards')->subject('Welcome!');
+        });*/
         return view('home');
     }
 
@@ -47,8 +47,8 @@ class HomeController extends Controller
 
     public function join()
     {
-        //return redirect('/')->withErrors('暂未开启报名，敬请期待!');
-        return view('join');
+        return redirect('/')->withErrors('暂未开启报名，敬请期待!');
+        /*return view('join');*/
     }
 
 }
