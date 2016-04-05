@@ -75,7 +75,7 @@ class JoinController extends Controller
         $name = $request['name'];
         if (Choice::where('value', $addr)->count() > 0) {
             $data = Choice::where('name', 'send-email')->lists('value')->toArray();
-            return back()->withErrors('已经发过了');
+            return back()->withErrors('已经发过了')->with(compact('data'));
         }
 
         Mail::raw($content, function (Message $message) use ($addr) {
@@ -86,8 +86,8 @@ class JoinController extends Controller
             'user_id' => request()->user()->id,
             'content' => request()->user()->name . '发送邮件给' . $addr . "[$name]",]);
         Choice::create(['name' => 'send-email', 'value' => $addr]);
-
-        return back()->with('success', '发送成功,' . $addr . " [$name]")->with('sent', 2);
+        $data = Choice::where('name', 'send-email')->lists('value')->toArray();
+        return back()->with('success', '发送成功,' . $addr . " [$name]")->with(compact('data'));
 
     }
 }
