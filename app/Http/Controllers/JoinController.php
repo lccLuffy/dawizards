@@ -76,7 +76,6 @@ class JoinController extends Controller
         }*/
 
         Mail::raw($content, function (Message $message) use ($addr, $name) {
-
             $message->to($addr)->subject('DA wizards：' . $name . ',恭喜你可以面试了!');
         });
 
