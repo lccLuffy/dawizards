@@ -70,14 +70,14 @@ class JoinController extends Controller
         $content = $request['content'];
         $addr = $request['address'];
         $name = $request['name'];
-        if (Choice::where('value', $addr)->count() > 0) {
+        /*if (Choice::where('value', $addr)->count() > 0) {
             $data = Choice::where('name', 'send-email')->lists('value')->toArray();
             return back()->withErrors('已经发过了')->with(compact('data'));
-        }
+        }*/
 
         Mail::raw($content, function (Message $message) use ($addr, $name) {
             $message->from('13402809589@163.com', 'DA wizards');
-            $message->to($addr, 'DA wizards')->subject('DA wizards：' . $name . ',恭喜你可以面试了!');
+            $message->to($addr)->subject('DA wizards：' . $name . ',恭喜你可以面试了!');
         });
 
         Log::create([
