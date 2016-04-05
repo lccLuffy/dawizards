@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Choice;
+use App\Http\Requests;
 use App\Join;
 use App\Log;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class JoinController extends Controller
@@ -78,8 +75,9 @@ class JoinController extends Controller
             return back()->withErrors('已经发过了')->with(compact('data'));
         }
 
-        Mail::raw($content, function (Message $message) use ($addr) {
-            $message->to($addr, 'DA wizards')->subject('DA wizards：恭喜你可以面试了!');
+        Mail::raw($content, function (Message $message) use ($addr, $name) {
+            $message->from('13402809589@163.com', 'DA wizards');
+            $message->to($addr)->subject('DA wizards：' . $name . ',恭喜你可以面试了!');
         });
 
         Log::create([
